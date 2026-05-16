@@ -3,317 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Sosyal Medya Paylaşım Özellikleri (Open Graph - LinkedIn, Twitter, Instagram için) -->
-    <meta property="og:title" content="Steel Perspective | Talaşlı İmalat ve Tedarik Zinciri Analizleri">
-    <meta property="og:description" content="Talaşlı imalat teknolojileri, endüstriyel trendler ve küresel tedarik zinciri dinamikleri üzerine aylık derinlemesine incelemeler.">
-    <meta property="og:type" content="website">
-    
-    <title>Steel Perspective | Endüstriyel Analiz ve Makaleler</title>
-    
+    <title>Steel Perspective | Endüstriyel Analiz & Mühendislik Notları</title>
     <style>
-        /* Modern Endüstriyel Renk Paleti ve Temel Ayarlar */
+        /* Gradyan ve Elegant Renk Paleti Tasarımı */
+        :root {
+            --bg-dark: #120e16;       /* Derin koyu mor/siyah arka plan */
+            --panel-dark: #1e1924;    /* Kartlar ve paneller için koyu mor */
+            --accent-purple: #8e44ad; /* Canlı elegant mor */
+            --neon-pink: #e84393;     /* Görseldeki join now / vurgu pembesi */
+            --text-light: #f5f6fa;    /* Net okunabilir açık gri metin */
+            --text-muted: #b2bec3;    /* İkincil teknik detay yazıları */
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: #f5f7fa; /* Temiz, gözü yormayan açık gri arka plan */
-            color: #2c3e50; /* Okunabilirliği yüksek koyu antrasit yazı rengi */
-            line-height: 1.7;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Navigasyon / Başlık Alanı */
+        /* Arka Plandaki Akıcı Dalga Efektleri (CSS Gradient Art) */
+        .wave-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 600px;
+            background: radial-gradient(circle at 80% 20%, rgba(232, 67, 147, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 20% 80%, rgba(142, 68, 173, 0.2) 0%, transparent 60%);
+            z-index: -1;
+        }
+
+        /* Navigasyon Barı */
         header {
-            background-color: #1e272e; /* Endüstriyel koyu gri/siyah */
-            border-bottom: 4px solid #3498db; /* Çelik mavisi detay çizgisi */
-            padding: 1.5rem 2rem;
+            background: rgba(30, 25, 36, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(142, 68, 173, 0.3);
+            padding: 1.2rem 2rem;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 800;
-            color: #ffffff;
-            letter-spacing: 1px;
             text-transform: uppercase;
-        }
-
-        .logo span {
-            color: #3498db; /* Perspektif vurgusu için mavi ton */
+            letter-spacing: 1.5px;
+            background: linear-gradient(45deg, #ffffff, var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 25px;
+            gap: 30px;
         }
 
         .nav-links a {
-            color: #d2dae2;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            font-size: 0.95rem;
-        }
-
-        .nav-links a:hover {
-            color: #3498db;
-        }
-
-        /* Hero / Giriş Mottosu */
-        .hero-section {
-            background: linear-gradient(135deg, #1e272e 0%, #2c3e50 100%);
-            color: white;
-            padding: 4.5rem 1rem;
-            text-align: center;
-            border-bottom: 1px solid #d2dae2;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-content h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .hero-content p {
-            font-size: 1.1rem;
-            color: #9b9feb; /* Dinamik ve üretkenliği temsil eden yeşil vurgu */
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
-        /* Ana İçerik Düzeni (Makalelerin Listelendiği Alan) */
-        .main-container {
-            max-width: 900px; /* Derli toplu ve odaklanmış okuma alanı için ideal genişlik */
-            margin: 3.5rem auto;
-            padding: 0 1.5rem;
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #1e272e;
-            margin-bottom: 2rem;
-            border-left: 5px solid #3498db;
-            padding-left: 10px;
-        }
-
-        /* Makale Kart Tasarımı (Yazıların Derli Toplu Durması İçin) */
-        .article-card {
-            background: #ffffff;
-            border-radius: 6px;
-            padding: 2.5rem;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02), 0 1px 10px rgba(0, 0, 0, 0.04);
-            border: 1px solid #e1e8ed;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .article-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
-        }
-
-        .meta-info {
-            font-size: 0.85rem;
-            color: #7f8c8d;
-            margin-bottom: 0.75rem;
-            display: flex;
-            gap: 15px;
-            font-weight: 500;
-        }
-
-        .category {
-            color: #3498db;
-            text-transform: uppercase;
-        }
-
-        .article-title {
-            font-size: 1.8rem;
-            color: #1e272e;
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-
-        .article-excerpt {
-            font-size: 1.05rem;
-            color: #4b6584;
-            margin-bottom: 1.5rem;
-            text-align: justify;
-        }
-
-        /* Sosyal Medyada Paylaş ve Devamını Oku Butonları */
-        .card-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid #f1f2f6;
-            padding-top: 1.2rem;
-            margin-top: 1.5rem;
-        }
-
-        .read-more {
-            color: #3498db;
+            color: var(--text-muted);
             text-decoration: none;
             font-weight: 600;
             font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-
-        .read-more:hover {
-            color: #1b1464;
-            text-decoration: underline;
-        }
-
-        .share-actions button {
-            background: none;
-            border: 1px solid #d2dae2;
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
+            text-transform: uppercase;
+            transition: all 0.3s;
             cursor: pointer;
-            font-size: 0.85rem;
-            color: #57606f;
-            transition: all 0.2s;
+            padding: 0.5rem 0.2rem;
         }
 
-        .share-actions button:hover {
-            background-color: #1e272e;
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text-light);
+            border-bottom: 2px solid var(--neon-pink);
+        }
+
+        /* Kahraman (Hero) Bölümü */
+        .hero {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(135deg, var(--accent-purple), var(--neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            text-align: justify;
+        }
+
+        .btn-join {
+            background: linear-gradient(90deg, var(--neon-pink), var(--accent-purple));
             color: white;
-            border-color: #1e272e;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(232, 67, 147, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        /* Alt Bilgi / Footer */
-        footer {
-            background-color: #1e272e;
-            color: #a4b0be;
-            text-align: center;
-            padding: 2rem 1rem;
-            margin-top: 5rem;
-            font-size: 0.9rem;
-            border-top: 4px solid #3498db;
+        .btn-join:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(232, 67, 147, 0.6);
         }
 
-        footer p {
+        /* İnteraktif Sayfa Panelleri (Tabs) */
+        .page-content {
+            display: none; /* Varsayılan olarak gizli */
+            max-width: 1200px;
+            margin: 0 auto 4rem auto;
+            padding: 0 2rem;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+
+        .page-content.active-page {
+            display: block; /* Sadece aktif olan görünecek */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Kart Yapıları */
+        .glass-panel {
+            background: var(--panel-dark);
+            border: 1px solid rgba(142, 68, 173, 0.2);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--neon-pink);
+            padding-left: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Yazılarım Kısmı İçin Alt Kartlar */
+        .article-node {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 3px solid var(--accent-purple);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            transition: all 0.3s;
+        }
+
+        .article-node:hover {
+            background: rgba(142, 68, 173, 0.08);
+            border-left-color: var(--neon-pink);
+            transform: translateX(5px);
+        }
+
+        .article-meta {
+            font-size: 0.85rem;
+            color: var(--neon-pink);
+            font-weight: 700;
             margin-bottom: 0.5rem;
+            text-transform: uppercase;
         }
 
-        /* Mobil Cihaz Uyumluluğu */
+        .article-node h3 {
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            background: #0b080e;
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(142, 68, 173, 0.2);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Sağdaki Küçük Grafik Paneli (Görseldeki havayı desteklemek için) */
+        .side-graphic {
+            background: linear-gradient(135deg, rgba(30, 25, 36, 0.6), rgba(142, 68, 173, 0.1));
+            border: 1px solid rgba(232, 67, 147, 0.2);
+            height: 350px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .circle-deco {
+            width: 150px;
+            height: 150px;
+            border: 2px dashed var(--neon-pink);
+            border-radius: 50%;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate { group { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        /* Mobil Uyumluluk */
         @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .hero-content h1 {
-                font-size: 1.9rem;
-            }
-            .article-card {
-                padding: 1.5rem;
-            }
-            .article-title {
-                font-size: 1.4rem;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Üst Menü -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">Steel <span>Perspective</span></div>
-            <ul class="nav-links">
-                <li><a href="#">Makaleler</a></li>
-                <li><a href="#">Hakkında</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Giriş Alanı -->
-    <section class="hero-section">
-        <div class="hero-content">
-            <h1>Talaşlı İmalat Metodolojileri ve Küresel Tedarik Zinciri Perspektifi</h1>
-            <p>Aylık Teknik İncelemeler & Stratejik Düşünceler</p>
-        </div>
-    </section>
-
-    <!-- Makale Listesi -->
-    <main class="main-container">
-        <h2 class="section-title">Son Yazılar</h2>
-
-        <!-- 1. Makale Kartı -->
-        <article class="article-card">
-            <div class="meta-info">
-                <span class="category">Talaşlı İmalat</span>
-                <span class="date">Mayıs 2026</span>
-            </div>
-            <h3 class="article-title"> deneysel başlık </h3>
-            <p class="article-excerpt">
- kedileri çk severim
-            </p>
-            <div class="card-footer">
-                <a href="#" class="read-more">Makalenin Tamamını Oku &rarr;</a>
-                <div class="share-actions">
-                    <button onclick="shareLink('Yüksek Hızlı İşlemede Kesme Parametreleri')">Bağlantıyı Kopyala</button>
-                </div>
-            </div>
-        </article>
-
-        <!-- 2. Makale Kartı -->
-        <article class="article-card">
-            <div class="meta-info">
-                <span class="category">Tedarik Zinciri</span>
-                <span class="date">Nisan 2026</span>
-            </div>
-            <h3 class="article-title">Küresel Hammadde Krizleri Karşısında Yalın Tedarik Zinciri ve Risk Yönetimi</h3>
-            <p class="article-excerpt">
-                Üretim sektöründe tam zamanında (Just-In-Time) üretim felsefesi popülerliğini korusa da, son dönemde yaşanan lojistik tıkanıklıklar ve ham madde tedarikindeki dalgalanmalar bize alternatif bir bakış açısı sunuyor. Bu yazıda, talaşlı imalat atölyelerinden büyük ölçekli fabrikalara kadar malzeme akışını güvenceye alacak tampon stok stratejilerini analiz ettim...
-            </p>
-            <div class="card-footer">
-                <a href="#" class="read-more">Makalenin Tamamını Oku &rarr;</a>
-                <div class="share-actions">
-                    <button onclick="shareLink('Küresel Hammadde Krizleri ve Tedarik Zinciri')">Bağlantıyı Kopyala</button>
-                </div>
-            </div>
-        </article>
-
-    </main>
-
-    <!-- Alt Bilgi -->
-    <footer>
-        <p>&copy; 2026 Steel Perspective. Tüm Hakları Saklıdır.</p>
-        <p style="font-size: 0.8rem; opacity: 0.7;">Talaşlı İmalat ve Tedarik Yönetimi Üzerine Kişisel Araştırma ve Düşünceler</p>
-    </footer>
-
-    <!-- Sosyal Medya Paylaşım Yardımcı Kodu -->
-    <script>
-        function shareLink(title) {
-            // Sosyal medyada paylaşımı kolaylaştırmak için link kopyalama fonksiyonu
-            navigator.clipboard.writeText(window.location.href);
-            alert('"' + title + '" başlıklı yazının bağlantısı panoya kopyalandı! Sosyal medya hesaplarınızda doğrudan paylaşabilirsiniz.');
-        }
-    </script>
-
-</body>
-</html>
+            .hero { grid-template-columns: 1fr; text-align: center; margin: 2rem auto; }
+            .side-graphic { display: none; }
+            .nav-links { gap: 15px; }
+            .hero-text h1 { font-size: 2.2
